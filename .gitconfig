@@ -1,0 +1,20 @@
+[user]
+    name = sacha
+    email = sacha.athias@epita.fr
+
+[color]
+    ui = true
+
+[core]
+    editor = vim
+    pager = less -iXFR
+
+[push]
+    default = simple
+    followTags = true
+
+[merge]
+    tool = fugitive
+
+[mergetool "fugitive"]
+    cmd = vim -f -c "Gvdiffsplit!" "$MERGED"

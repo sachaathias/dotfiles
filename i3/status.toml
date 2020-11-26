@@ -1,0 +1,87 @@
+[theme]
+name = "solarized-dark"
+
+[theme.overrides]
+idle_bg = "#44475a"
+idle_fg = "#f8f8f2"
+info_bg = "#1fad83"
+info_fg = "#44475a"
+good_bg = "#50fa7b"
+good_fg = "#20201d"
+warning_bg = "##ffb86c"
+warning_fg = "#20201d"
+critical_bg = "##ff5555"
+critical_fg = "#20201d"
+
+[icons]
+name = "awesome5"
+
+[[block]]
+block = "pacman"
+interval = 600
+format = "{pacman} + {aur} = {both} updates available"
+format_singular = "{both} update available"
+format_up_to_date = "up to date"
+critical_updates_regex = "(linux |linux-lts|linux-zen)"
+# aur_command should output available updates to stdout (ie behave as echo -ne "update\n")
+aur_command = "pikaur -Qua"
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+clickable = false
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "temperature"
+collapsed = false
+interval = 10
+format = "{max}°"
+chip = "coretemp-isa-*"
+
+[[block]]
+block = "music"
+player = "spotify"
+buttons = ["play", "next"]
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "networkmanager"
+primary_only = true
+on_click = "nm-applet"
+interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
+interface_name_include = []
+
+[[block]]
+block = "net"
+device = "wlo1"
+format = "{speed_down} {graph_down}"
+interval = 5
+use_bits = false
+
+[[block]]
+block = "time"
+interval = 5
+format = "%a %d/%m %T"
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage}%"
+driver = "upower"
+device = "DisplayDevice"
+
+
